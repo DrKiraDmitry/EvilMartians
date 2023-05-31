@@ -1,0 +1,10 @@
+﻿.LoginForm {
+  min-width: 500px;
+  display: flex;
+  flex-direction: column;
+  background: black;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 2rem 1rem;
+}
