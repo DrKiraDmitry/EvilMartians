@@ -61,6 +61,10 @@
   border-radius: 8px;
 }
 
+.LoginForm__button:active{
+  background: black;
+}
+
 .LoginForm__forgot{
   margin-top: 1rem;
   color: var(--primary-variant);

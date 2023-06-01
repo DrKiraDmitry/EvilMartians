@@ -1,0 +1,40 @@
+﻿.KeyButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1/1;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 8px;
+  width: 80px;
+  box-sizing: border-box;
+  transition: 0.3s;
+  background: var(--01dp);
+  color: var(--surface);
+  user-select: none;
+  box-shadow: none;
+  border: none;
+  position: relative;
+}
+
+.KeyButton span {
+  transition: 0.1s;
+}
+
+.KeyButton__dote {
+  position: absolute;
+}
+
+.KeyButton_hidden {
+  opacity: 0;
+}
+
+.KeyButton:hover {
+  opacity: 0.7;
+}
+
+.KeyButton_active,
+.KeyButton:active {
+  opacity: 0.2;
+}
+
