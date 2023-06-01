@@ -9,6 +9,7 @@
   min-width: 480px;
   margin-left: 1rem;
   text-align: center;
+  justify-content: center;
 }
 
 @media (max-width: 1500px) {
@@ -20,7 +21,6 @@
 @media (max-width: 1450px) {
   .LoginForm__form{
     justify-content: center;
-    align-items: center;
   }
 }
 
@@ -35,8 +35,8 @@
 
 .LoginForm__title{
   color: var(--surface);
-  margin-top: 0;
-  margin-bottom: 4rem;
+  margin: 0;
+  margin-bottom: 1rem;
 }
 
 .LoginForm__label{
@@ -59,15 +59,20 @@
   color: var(--surface);
   cursor: pointer;
   border-radius: 8px;
+  transition: 0.2s;
 }
 
 .LoginForm__button:active{
-  background: black;
+  opacity: 0.5;
 }
 
 .LoginForm__forgot{
   margin-top: 1rem;
-  color: var(--primary-variant);
+  color: var(--surface);
   text-decoration: none;
+  transition: 0.2s;
 }
 
+.LoginForm__forgot:hover{
+  opacity: 0.8;
+}

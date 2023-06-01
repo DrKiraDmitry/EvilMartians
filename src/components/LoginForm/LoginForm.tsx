@@ -20,6 +20,7 @@ export const LoginForm: FC<LoginFormProps> = ({ mail, password, setHiddenMode, s
       <form className={styles.LoginForm__form}>
         <h1 className={styles.LoginForm__title}>Sign in</h1>
         <Input
+          title={"Email"}
           onChange={(e) => mail.setState(e.target.value)}
           value={mail.state}
           type="email"
@@ -38,7 +39,10 @@ export const LoginForm: FC<LoginFormProps> = ({ mail, password, setHiddenMode, s
           placeholder={"Email"}
         />
         <Input
-          onChange={(e) => password.setState(e.target.value)}
+          title={"Password"}
+          onChange={(e) => {
+            password.setState(e.target.value);
+          }}
           value={password.state}
           type="password"
           autoComplete="current-password"
@@ -55,7 +59,7 @@ export const LoginForm: FC<LoginFormProps> = ({ mail, password, setHiddenMode, s
         />
         <div className={styles.LoginForm__footer}>
           <button className={styles.LoginForm__button}>Accept</button>
-          <a href={"/forgot"} className={styles.LoginForm__forgot}>
+          <a href={"#"} className={styles.LoginForm__forgot}>
             Forgot your email address?
           </a>
         </div>

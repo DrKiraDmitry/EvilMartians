@@ -8,9 +8,8 @@ export const KeyButton: FC<{ char: string; clickEvent: () => void; hiddenMode: b
   pressed,
 }) => {
   return (
-    <button
-      type={"button"}
-      role={"presentation"}
+    <div
+      aria-hidden
       onClick={() => {
         clickEvent();
       }}
@@ -18,6 +17,6 @@ export const KeyButton: FC<{ char: string; clickEvent: () => void; hiddenMode: b
     >
       <span className={`${hiddenMode && styles.KeyButton_hidden}`}>{char}</span>
       <span className={styles.KeyButton__dote + ` ${!hiddenMode && styles.KeyButton_hidden}`}>•</span>
-    </button>
+    </div>
   );
 };
