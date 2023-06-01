@@ -2,9 +2,22 @@
   min-width: 500px;
   display: flex;
   flex-direction: column;
-  background: black;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  margin-left: auto;
+  padding: 1rem;
+}
+.LoginForm__form{
+  background: var(--01dp);
+  display: flex;
+  flex-direction: column;
   padding: 2rem 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 8px;
+  align-items: center;
+}
+.LoginForm__title{
+  color: var(--surface);
 }

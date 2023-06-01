@@ -1,3 +1,52 @@
 ﻿.InputHelper{
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.InputHelper__container{
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-gap: 1rem;
+}
+
+.InputHelper__element{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1/1;
+  cursor:pointer;
+  border-radius: 8px;
+  padding: 8px;
+  width: 79px;
+  box-sizing: border-box;
+  transition: 0.3s;
+  background: var(--01dp);
+  color: var(--surface);
+  user-select: none;
+  box-shadow: none;
+  border: none;
+  position: relative;
+}
+
+.InputHelper__element span{
+  transition: 0.2s;
+}
+
+.InputHelper__hidden{
+  opacity: 0;
+}
+
+.InputHelper__dote{
+  position: absolute;
+}
+
+.InputHelper__element_active,
+.InputHelper__element:active{
+  opacity: 0.1;
+}
+
+.InputHelper__element:hover{
+  opacity: 0.7;
 }
