@@ -1,5 +1,6 @@
 ﻿import React, { Dispatch, FC, SetStateAction } from "react";
 import styles from "./styles/LoginForm.module.css";
+import { Input } from "../Input/Input";
 
 type inputProps = {
   state: string;
@@ -17,36 +18,34 @@ export const LoginForm: FC<LoginFormProps> = ({ mail, password, setHiddenMode })
     <>
       <form className={styles.LoginForm__form}>
         <h1 className={styles.LoginForm__title}>Sign in</h1>
-        <label className={styles.LoginForm__label}>
-          <input
-            onChange={(e) => mail.setState(e.target.value)}
-            value={mail.state}
-            type="email"
-            autoComplete="username"
-            required
-            aria-invalid="true"
-            aria-errormessage="email-error"
-            onFocus={() => setHiddenMode(false)}
-            onBlur={() => setHiddenMode(true)}
-          />
-        </label>
-        <label className={styles.LoginForm__label}>
-          <input
-            onChange={(e) => password.setState(e.target.value)}
-            value={password.state}
-            type="password"
-            autoComplete="current-password"
-            required
-            aria-invalid="true"
-            aria-errormessage="password-error"
-            minLength={4}
-            onFocus={() => setHiddenMode(true)}
-          />
-        </label>
+        <Input
+          onChange={(e) => mail.setState(e.target.value)}
+          value={mail.state}
+          type="email"
+          autoComplete="username"
+          required
+          aria-invalid="true"
+          aria-errormessage="email-error"
+          onFocus={() => setHiddenMode(false)}
+          onBlur={() => setHiddenMode(true)}
+          placeholder={"Email"}
+        />
+        <Input
+          onChange={(e) => password.setState(e.target.value)}
+          value={password.state}
+          type="password"
+          autoComplete="current-password"
+          required
+          aria-invalid="true"
+          aria-errormessage="password-error"
+          minLength={4}
+          onFocus={() => setHiddenMode(true)}
+          placeholder={"Password"}
+        />
         <div className={styles.LoginForm__footer}>
-          <button className={styles.LoginForm__button_success}>Accept</button>
-          <a href={"/forget"} className={styles.LoginForm__button_forget}>
-            Forget
+          <button className={styles.LoginForm__button}>Accept</button>
+          <a href={"/forgot"} className={styles.LoginForm__forgot}>
+            Forgot your email address?
           </a>
         </div>
       </form>

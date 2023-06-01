@@ -2,13 +2,13 @@
   background: var(--01dp);
   display: flex;
   flex-direction: column;
-  padding: 2rem 1rem;
+  padding: 2rem 4rem;
   width: 100%;
   box-sizing: border-box;
   border-radius: 8px;
-  align-items: center;
   min-width: 480px;
   margin-left: 1rem;
+  text-align: center;
 }
 
 @media (max-width: 1500px) {
@@ -17,12 +17,53 @@
   }
 }
 
+@media (max-width: 1450px) {
+  .LoginForm__form{
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 1023px) {
+  .LoginForm__form{
+    margin: 0;
+    min-width: auto;
+    max-width: 480px;
+  }
+}
+
+
 .LoginForm__title{
   color: var(--surface);
+  margin-top: 0;
+  margin-bottom: 4rem;
 }
 
 .LoginForm__label{
   margin-bottom: 1rem;
 }
 
+.LoginForm__footer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.LoginForm__button{
+  padding: 0.75rem 4rem;
+  border: 0;
+  background: var(--primary);
+  font-size: 1rem;
+  line-height: 20px;
+  text-decoration: none;
+  color: var(--surface);
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.LoginForm__forgot{
+  margin-top: 1rem;
+  color: var(--primary-variant);
+  text-decoration: none;
+}
 
