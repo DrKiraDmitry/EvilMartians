@@ -13,8 +13,14 @@ export const LoginPage = () => {
 
   const inputHelperCallback = (char: string) => {
     if (!activeFocus) return;
-    if (hiddenMode) return setPassword((prev) => prev + char);
-    return setEmail((prev) => prev + char);
+
+    const plus = (a: string, b: string) => a + b;
+    const minus = (a: string) => a.slice(0, -1);
+    const isBackspace = (a: string, b: string) => ("Backspace" === char ? minus(a) : plus(a, b));
+
+    if (hiddenMode) return setPassword((prev) => isBackspace(prev, char));
+
+    return setEmail((prev) => isBackspace(prev, char));
   };
 
   return (

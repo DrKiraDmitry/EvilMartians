@@ -23,3 +23,17 @@
     grid-template-columns: repeat(5, 1fr);
   }
 }
+
+.InputHelper__backspace{
+  grid-column: 9/11;
+  aspect-ratio: 0 !important;
+  width: auto !important;
+}
+
+@media (max-width: 1450px) {
+  .InputHelper__backspace{
+    grid-column: 4/6;
+    aspect-ratio: 0 !important;
+    width: auto !important;
+  }
+}

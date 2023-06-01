@@ -30,6 +30,14 @@ export const InputHelper: FC<{ callback: (chooseChar: string) => void; hiddenMod
             clickEvent={() => clickEvent(el)}
           />
         ))}
+        <KeyButton
+          char={"🠀"}
+          pressed={!!keyboard && "Backspace".toLowerCase() === keyboard.toLowerCase()}
+          key={"Backspace"}
+          hiddenMode={false}
+          clickEvent={() => clickEvent("Backspace")}
+          className={styles.InputHelper__backspace}
+        />
       </div>
     </div>
   );
