@@ -24,7 +24,7 @@ export const InputHelper: FC<{ callback: (chooseChar: string) => void; hiddenMod
         {inputHelperSymbols.map((el, i) => (
           <KeyButton
             char={el}
-            pressed={el.toLowerCase() === keyboard.toLowerCase()}
+            pressed={!!keyboard && el.toLowerCase() === keyboard.toLowerCase()}
             key={el + i}
             hiddenMode={hiddenMode}
             clickEvent={() => clickEvent(el)}

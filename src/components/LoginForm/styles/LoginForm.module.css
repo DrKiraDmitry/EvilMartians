@@ -66,6 +66,12 @@
   opacity: 0.5;
 }
 
+
+.LoginForm__button:disabled{
+  background: var(--03dp);
+  cursor: not-allowed;
+}
+
 .LoginForm__forgot{
   margin-top: 1rem;
   color: var(--surface);

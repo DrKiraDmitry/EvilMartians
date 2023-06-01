@@ -8,21 +8,36 @@ type inputProps = {
 };
 
 type LoginFormProps = {
-  mail: inputProps;
+  email: inputProps;
   password: inputProps;
   setHiddenMode: (type: boolean) => void;
   setActiveFocus: (x: boolean) => void;
+  sendForm: () => void;
+  disabledSend: boolean;
 };
 
-export const LoginForm: FC<LoginFormProps> = ({ mail, password, setHiddenMode, setActiveFocus }) => {
+export const LoginForm: FC<LoginFormProps> = ({
+  email,
+  password,
+  setHiddenMode,
+  setActiveFocus,
+  sendForm,
+  disabledSend,
+}) => {
   return (
     <>
-      <form className={styles.LoginForm__form}>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          sendForm();
+        }}
+        className={styles.LoginForm__form}
+      >
         <h1 className={styles.LoginForm__title}>Sign in</h1>
         <Input
           title={"Email"}
-          onChange={(e) => mail.setState(e.target.value)}
-          value={mail.state}
+          onChange={(e) => email.setState(e.target.value)}
+          value={email.state}
           type="email"
           autoComplete="username"
           required
@@ -58,7 +73,9 @@ export const LoginForm: FC<LoginFormProps> = ({ mail, password, setHiddenMode, s
           placeholder={"Password"}
         />
         <div className={styles.LoginForm__footer}>
-          <button className={styles.LoginForm__button}>Accept</button>
+          <button disabled={disabledSend} className={styles.LoginForm__button}>
+            {disabledSend ? "Waiting..." : "Accept"}
+          </button>
           <a href={"#"} className={styles.LoginForm__forgot}>
             Forgot your email address?
           </a>
