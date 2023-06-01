@@ -9,8 +9,10 @@ export const LoginPage = () => {
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
   const [hiddenMode, setHiddenMode] = useState(true);
+  const [activeFocus, setActiveFocus] = useState(false);
 
   const inputHelperCallback = (char: string) => {
+    if (!activeFocus) return;
     if (hiddenMode) return setPassword((prev) => prev + char);
     return setMail((prev) => prev + char);
   };
@@ -19,6 +21,7 @@ export const LoginPage = () => {
     <div className={styles.LoginPage}>
       {isPc && <InputHelper hiddenMode={hiddenMode} callback={(x) => inputHelperCallback(x)} />}
       <LoginForm
+        setActiveFocus={(x) => setActiveFocus(x)}
         setHiddenMode={(x) => setHiddenMode(x)}
         mail={{ state: mail, setState: (x) => setMail(x) }}
         password={{ state: password, setState: (x) => setPassword(x) }}

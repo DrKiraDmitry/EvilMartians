@@ -11,5 +11,5 @@
 }
 
 .Input:focus{
-  outline: var(--04dp);
+  outline-color: var(--primary);
 }

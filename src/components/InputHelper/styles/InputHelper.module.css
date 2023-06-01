@@ -43,13 +43,6 @@
   position: relative;
 }
 
-@media (max-width: 1500px) {
-  .InputHelper__element {
-    /*font-size: 12px;*/
-    /*width: 60px;*/
-  }
-}
-
 .InputHelper__element span {
   transition: 0.2s;
 }

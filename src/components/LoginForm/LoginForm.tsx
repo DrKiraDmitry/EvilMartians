@@ -11,9 +11,10 @@ type LoginFormProps = {
   mail: inputProps;
   password: inputProps;
   setHiddenMode: (type: boolean) => void;
+  setActiveFocus: (x: boolean) => void;
 };
 
-export const LoginForm: FC<LoginFormProps> = ({ mail, password, setHiddenMode }) => {
+export const LoginForm: FC<LoginFormProps> = ({ mail, password, setHiddenMode, setActiveFocus }) => {
   return (
     <>
       <form className={styles.LoginForm__form}>
@@ -26,8 +27,14 @@ export const LoginForm: FC<LoginFormProps> = ({ mail, password, setHiddenMode })
           required
           aria-invalid="true"
           aria-errormessage="email-error"
-          onFocus={() => setHiddenMode(false)}
-          onBlur={() => setHiddenMode(true)}
+          onFocus={() => {
+            setActiveFocus(true);
+            setHiddenMode(false);
+          }}
+          onBlur={() => {
+            setActiveFocus(false);
+            setHiddenMode(true);
+          }}
           placeholder={"Email"}
         />
         <Input
@@ -39,7 +46,11 @@ export const LoginForm: FC<LoginFormProps> = ({ mail, password, setHiddenMode })
           aria-invalid="true"
           aria-errormessage="password-error"
           minLength={4}
-          onFocus={() => setHiddenMode(true)}
+          onFocus={() => {
+            setActiveFocus(true);
+            setHiddenMode(true);
+          }}
+          onBlur={() => setActiveFocus(false)}
           placeholder={"Password"}
         />
         <div className={styles.LoginForm__footer}>
