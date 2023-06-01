@@ -1,25 +1,38 @@
-﻿.InputHelper{
+﻿.InputHelper {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.InputHelper__container{
+.InputHelper__container {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-gap: 1rem;
+  transition: 0.3s;
 }
 
-.InputHelper__element{
+@media (max-width: 1500px) {
+  .InputHelper__container {
+    grid-gap: 0.75rem;
+  }
+}
+
+@media (max-width: 1450px) {
+  .InputHelper__container {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.InputHelper__element {
   display: flex;
   align-items: center;
   justify-content: center;
   aspect-ratio: 1/1;
-  cursor:pointer;
+  cursor: pointer;
   border-radius: 8px;
   padding: 8px;
-  width: 79px;
+  width: 80px;
   box-sizing: border-box;
   transition: 0.3s;
   background: var(--01dp);
@@ -30,23 +43,30 @@
   position: relative;
 }
 
-.InputHelper__element span{
+@media (max-width: 1500px) {
+  .InputHelper__element {
+    /*font-size: 12px;*/
+    /*width: 60px;*/
+  }
+}
+
+.InputHelper__element span {
   transition: 0.2s;
 }
 
-.InputHelper__hidden{
+.InputHelper__hidden {
   opacity: 0;
 }
 
-.InputHelper__dote{
+.InputHelper__dote {
   position: absolute;
 }
 
 .InputHelper__element_active,
-.InputHelper__element:active{
+.InputHelper__element:active {
   opacity: 0.1;
 }
 
-.InputHelper__element:hover{
+.InputHelper__element:hover {
   opacity: 0.7;
 }

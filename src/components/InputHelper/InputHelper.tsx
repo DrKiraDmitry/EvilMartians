@@ -1,4 +1,4 @@
-﻿import React, { FC, useMemo } from "react";
+﻿import React, { FC } from "react";
 import styles from "./styles/InputHelper.module.css";
 import { useKeyWatcher } from "../../hooks/useKeyWatcher";
 import { inputHelperSymbols } from "./inputHelperSymbols";
@@ -10,14 +10,14 @@ const KeyButton: FC<{ char: string; clickEvent: () => void; hiddenMode: boolean;
   pressed,
 }) => {
   return (
-    <button
+    <div
       role={"presentation"}
       onClick={() => clickEvent()}
       className={styles.InputHelper__element + ` ${pressed && styles.InputHelper__element_active}`}
     >
       <span className={`${hiddenMode && styles.InputHelper__hidden}`}>{char}</span>
       <span className={styles.InputHelper__dote + ` ${!hiddenMode && styles.InputHelper__hidden}`}>•</span>
-    </button>
+    </div>
   );
 };
 

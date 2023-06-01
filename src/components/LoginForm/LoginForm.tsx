@@ -1,14 +1,6 @@
 ﻿import React, { Dispatch, FC, SetStateAction } from "react";
 import styles from "./styles/LoginForm.module.css";
 
-export const ErrorBox = () => {
-  return (
-    <div className={styles.ErrorBox}>
-      <div className={styles.ErrorBox__element}></div>
-    </div>
-  );
-};
-
 type inputProps = {
   state: string;
   setState: Dispatch<SetStateAction<string>>;
@@ -22,7 +14,7 @@ type LoginFormProps = {
 
 export const LoginForm: FC<LoginFormProps> = ({ mail, password, setHiddenMode }) => {
   return (
-    <div className={styles.LoginForm}>
+    <>
       <form className={styles.LoginForm__form}>
         <h1 className={styles.LoginForm__title}>Sign in</h1>
         <label className={styles.LoginForm__label}>
@@ -35,6 +27,7 @@ export const LoginForm: FC<LoginFormProps> = ({ mail, password, setHiddenMode })
             aria-invalid="true"
             aria-errormessage="email-error"
             onFocus={() => setHiddenMode(false)}
+            onBlur={() => setHiddenMode(true)}
           />
         </label>
         <label className={styles.LoginForm__label}>
@@ -57,6 +50,6 @@ export const LoginForm: FC<LoginFormProps> = ({ mail, password, setHiddenMode })
           </a>
         </div>
       </form>
-    </div>
+    </>
   );
 };

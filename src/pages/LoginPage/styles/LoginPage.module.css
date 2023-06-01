@@ -1,4 +1,5 @@
-﻿.LoginPage{
-    display: flex;
-    min-height: 100vh;
+﻿.LoginPage {
+  display: flex;
+  margin: auto;
+  padding: 1rem;
 }

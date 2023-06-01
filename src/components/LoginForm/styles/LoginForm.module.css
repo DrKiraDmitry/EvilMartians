@@ -1,14 +1,4 @@
-﻿.LoginForm {
-  min-width: 500px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  margin-left: auto;
-  padding: 1rem;
-}
-.LoginForm__form{
+﻿.LoginForm__form{
   background: var(--01dp);
   display: flex;
   flex-direction: column;
@@ -17,7 +7,22 @@
   box-sizing: border-box;
   border-radius: 8px;
   align-items: center;
+  min-width: 480px;
+  margin-left: 1rem;
 }
+
+@media (max-width: 1500px) {
+  .LoginForm__form{
+    margin-left: 0.75rem;
+  }
+}
+
 .LoginForm__title{
   color: var(--surface);
 }
+
+.LoginForm__label{
+  margin-bottom: 1rem;
+}
+
+
