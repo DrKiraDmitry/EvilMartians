@@ -1,6 +1,7 @@
 ﻿import React, { Dispatch, FC, SetStateAction } from "react";
 import styles from "./styles/LoginForm.module.css";
-import { Input } from "../Input/Input";
+import { Input, InputPassword } from "../Input/Input";
+import { ActiveFocusEnum } from "../../pages/LoginPage/LoginPage";
 
 type inputProps = {
   state: string;
@@ -11,7 +12,7 @@ type LoginFormProps = {
   email: inputProps;
   password: inputProps;
   setHiddenMode: (type: boolean) => void;
-  setActiveFocus: (x: boolean) => void;
+  setActiveFocus: (x: ActiveFocusEnum) => void;
   sendForm: () => void;
   disabledSend: boolean;
 };
@@ -44,16 +45,16 @@ export const LoginForm: FC<LoginFormProps> = ({
           aria-invalid="true"
           aria-errormessage="email-error"
           onFocus={() => {
-            setActiveFocus(true);
+            setActiveFocus(ActiveFocusEnum.email);
             setHiddenMode(false);
           }}
           onBlur={() => {
-            setActiveFocus(false);
+            setActiveFocus(ActiveFocusEnum.empty);
             setHiddenMode(true);
           }}
           placeholder={"Email"}
         />
-        <Input
+        <InputPassword
           title={"Password"}
           onChange={(e) => {
             password.setState(e.target.value);
@@ -65,11 +66,15 @@ export const LoginForm: FC<LoginFormProps> = ({
           aria-invalid="true"
           aria-errormessage="password-error"
           minLength={4}
-          onFocus={() => {
-            setActiveFocus(true);
+          onFocus={(e) => {
+            setActiveFocus(ActiveFocusEnum.password);
+            setHiddenMode(e.target.type === "password");
+          }}
+          onBlur={() => {
+            setActiveFocus(ActiveFocusEnum.empty);
             setHiddenMode(true);
           }}
-          onBlur={() => setActiveFocus(false)}
+          showPassEvent={(x) => setHiddenMode(x === "password")}
           placeholder={"Password"}
         />
         <div className={styles.LoginForm__footer}>

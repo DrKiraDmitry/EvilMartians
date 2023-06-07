@@ -4,23 +4,24 @@ import { InputHelper } from "../../components/InputHelper/InputHelper";
 import { LoginForm } from "../../components/LoginForm/LoginForm";
 import { usePlatformCheck } from "../../hooks/usePlatformCheck";
 import { useSendForm } from "../../hooks/api/useSendForm/useSendForm";
+import { inputHelperRules } from "../../utils/inputHelperRules";
+
+export enum ActiveFocusEnum {
+  password,
+  email,
+  empty,
+}
 
 export const LoginPage = () => {
   const { password, setPassword, email, setEmail, sendForm, disabledSend } = useSendForm();
   const isPc = usePlatformCheck("pc");
   const [hiddenMode, setHiddenMode] = useState(true);
-  const [activeFocus, setActiveFocus] = useState(false);
+  const [activeFocus, setActiveFocus] = useState(ActiveFocusEnum.empty);
 
   const inputHelperCallback = (char: string) => {
-    if (!activeFocus) return;
-
-    const plus = (a: string, b: string) => a + b;
-    const minus = (a: string) => a.slice(0, -1);
-    const isBackspace = (a: string, b: string) => ("Backspace" === char ? minus(a) : plus(a, b));
-
-    if (hiddenMode) return setPassword((prev) => isBackspace(prev, char));
-
-    return setEmail((prev) => isBackspace(prev, char));
+    if (activeFocus === ActiveFocusEnum.empty) return;
+    if (activeFocus === ActiveFocusEnum.password) return setPassword((prev) => inputHelperRules(prev, char));
+    if (activeFocus === ActiveFocusEnum.email) return setEmail((prev) => inputHelperRules(prev, char));
   };
 
   return (

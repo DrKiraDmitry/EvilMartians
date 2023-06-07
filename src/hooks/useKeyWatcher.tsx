@@ -5,7 +5,6 @@ export const useKeyWatcher = () => {
 
   const keyDown = (e: KeyboardEvent) => {
     setKey(e.key);
-    console.log(e.key);
   };
 
   const keyUp = () => {
