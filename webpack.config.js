@@ -10,16 +10,12 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, "public", "index.html"),
+      template: "./public/index.html",
       favicon: "./public/favicon.ico",
     }),
-    require("autoprefixer"),
-    require("postcss-nested"),
   ],
   devServer: {
-    static: {
-      directory: path.join(__dirname, "build"),
-    },
+    static: [{ directory: path.join(__dirname, "build") }, { directory: path.join(__dirname, "public") }],
     port: 3000,
   },
   module: {
@@ -60,9 +56,7 @@ module.exports = {
               importLoaders: 1,
             },
           },
-          {
-            loader: "postcss-loader",
-          },
+          { loader: "postcss-loader", options: { postcssOptions: { ...postcssOptions, config: false } } },
         ],
         exclude: /\.module\.css$/,
       },
@@ -79,26 +73,14 @@ module.exports = {
               modules: true,
             },
           },
-          {
-            loader: "postcss-loader",
-            options: {
-              sourceMap: true,
-              postcssOptions: {
-                ...postcssOptions,
-                config: false,
-              },
-            },
-          },
+          { loader: "postcss-loader", options: { postcssOptions: { ...postcssOptions, config: false } } },
         ],
         include: /\.module\.css$/,
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif|ico)$/,
         exclude: /node_modules/,
-        type: "asset",
-        generator: {
-          filename: "[path][name][ext]",
-        },
+        use: ["file-loader?name=[name].[ext]"],
       },
     ],
   },

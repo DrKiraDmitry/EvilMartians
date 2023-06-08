@@ -1,5 +1,12 @@
-﻿const config = {
-  plugins: [require("postcss-preset-env"), require("autoprefixer"), require("postcss-nested")],
+﻿const postcssPresetEnv = require("postcss-preset-env");
+
+const config = {
+  plugins: [
+    postcssPresetEnv({
+      browsers: "last 2 versions",
+      stage: 3,
+    }),
+  ],
 };
 
 module.exports = config;
