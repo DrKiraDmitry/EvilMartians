@@ -62,6 +62,10 @@
   transition: 0.2s;
 }
 
+.LoginForm__button:hover{
+  opacity: 0.9;
+}
+
 .LoginForm__button:active{
   opacity: 0.5;
 }

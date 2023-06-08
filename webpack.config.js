@@ -1,6 +1,7 @@
 ﻿const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const postcssOptions = require("./postcss.config");
+const isDev = process.env.NODE_ENV === "development";
 
 module.exports = {
   entry: "./src/index.tsx",

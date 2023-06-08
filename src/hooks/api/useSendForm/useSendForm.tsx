@@ -26,6 +26,7 @@ export const useSendForm = () => {
       });
     } catch (e) {
       console.error(e);
+      alert("Sorry, our back is not working, but we promise you that we will fix it soon");
     } finally {
       setDisabledSend(false);
     }
