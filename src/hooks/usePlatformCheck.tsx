@@ -7,7 +7,7 @@ enum PlatformsEnum {
 }
 
 export const usePlatformCheck = (type: keyof typeof PlatformsEnum) => {
-  const [width, setWindowWidth] = useState(0);
+  const [width, setWindowWidth] = useState(window.innerWidth);
 
   const updateDimensions = () => {
     const width = window.innerWidth;
@@ -15,7 +15,6 @@ export const usePlatformCheck = (type: keyof typeof PlatformsEnum) => {
   };
 
   useEffect(() => {
-    updateDimensions();
     window.addEventListener("resize", updateDimensions);
     return () => window.removeEventListener("resize", updateDimensions);
   }, []);
