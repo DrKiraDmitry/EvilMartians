@@ -59,7 +59,7 @@
 .LoginForm__button{
   padding: 0.75rem 4rem;
   border: 0;
-  background: var(--primary);
+  background: var(--primary-variant); /* change --primary on --primary-variant, for more contrast and a11y */ 
   font-size: 1rem;
   line-height: 20px;
   text-decoration: none;
