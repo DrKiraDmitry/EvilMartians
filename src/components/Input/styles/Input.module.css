@@ -23,8 +23,8 @@
 .Input__showPass{
   position: absolute;
   right: 0.5rem;
-  top: 0;
-  bottom: 0;
+  top: 0.5rem;
+  bottom: 0.5rem;
   margin: auto;
   border: 0;
   background: transparent;
@@ -33,6 +33,10 @@
 
 .Input__showPass:hover{
   opacity: 0.7;
+}
+
+.Input__showPass:focus{
+  outline-color: var(--primary);
 }
 
 .Input__showPass svg{

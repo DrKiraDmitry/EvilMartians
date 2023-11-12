@@ -21,6 +21,8 @@ export const InputPassword: FC<
     setTypeState(x);
     if (!!showPassEvent) showPassEvent(x);
   };
+  
+  const open = typeState === "text"
 
   return (
     <label className={styles.Input__label}>
@@ -29,14 +31,14 @@ export const InputPassword: FC<
         <input type={typeState} style={{ width: "100%" }} className={styles.Input} {...props} />
         <button
           type={"button"}
-          aria-label="Show password"
+          aria-label={open ? 'Hidden password' : "Show password"}
           className={styles.Input__showPass}
           onClick={() => showPass()}
           onMouseDown={(e) => {
             e.preventDefault(); // to keep input focus on click
           }}
         >
-          <LockIcon open={typeState === "text"} />
+          <LockIcon open={open} />
         </button>
       </div>
     </label>

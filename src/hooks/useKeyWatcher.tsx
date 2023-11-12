@@ -12,11 +12,11 @@ export const useKeyWatcher = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("keydown", (e) => keyDown(e));
-    window.addEventListener("keyup", () => keyUp());
+    window.addEventListener("keydown", keyDown);
+    window.addEventListener("keyup", keyUp);
     return () => {
-      window.removeEventListener("keydown", (e) => keyDown(e));
-      window.removeEventListener("keyup", () => keyUp());
+      window.removeEventListener("keydown", keyDown);
+      window.removeEventListener("keyup", keyUp);
     };
   }, []);
 
