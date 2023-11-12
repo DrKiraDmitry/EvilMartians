@@ -4,6 +4,12 @@
 
 The purpose of this task is to demonstrate the code by making a convenient and beautiful form of authentication through mail and password - but without ready-made component libraries. Consideration should be given to sending mail/password to the server, but the server can be omitted by simply locking `fetch()`.
 
+## LightHouse
+- Perfomance    100
+- Accessability 100
+- SEO           100
+- Best Practice 100
+
 ## I did not use:
 
 - State manager Mobx, because it is not needed here, the application is small, the nesting is small. As a last resort, if a manager is needed, I would use useContext
