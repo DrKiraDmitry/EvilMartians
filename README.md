@@ -1,4 +1,4 @@
-# [Demo](https://kiraworld.space/)
+# [Demo](https://drkiradmitry.github.io/EvilMartians/dist/)
 
 # This is a test task for the evil martians
 
